@@ -61,11 +61,14 @@
                         .then(
                             response => {
                                 alert(response.data.roomName+"방 개설에 성공하였습니다.")
+                                console.log(response.data);
                                 this.room_name = '';
                                 this.findAllRoom();
                             }
                         )
-                        .catch( response => { alert("채팅방 개설에 실패하였습니다."); } );
+                        .catch( response => { alert("채팅방 개설에 실패하였습니다.");
+                        console.log(response.data);
+                     } );
                 }
             },
             enterRoom: function(roomId) {
