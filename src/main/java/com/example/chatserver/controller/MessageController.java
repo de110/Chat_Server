@@ -1,5 +1,7 @@
 package com.example.chatserver.controller;
 
+import java.util.List;
+
 import com.example.chatserver.model.ChatMessage;
 import com.example.chatserver.service.ChatService;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -35,6 +38,13 @@ public class MessageController {
         // ChatMessage chatMessage = new ChatMessage();
         // return message;
 
+    }
+
+    // 모든 채팅 내역 반환
+    @GetMapping("/chat/messages")
+    @ResponseBody
+    public List<ChatMessage> allMsgs() {
+        return chatService.findAllMsgs();
     }
 
 }

@@ -124,4 +124,9 @@ public class ChatService {
         // chatRooms.put(chatRoom.getRoomId(), chatMessage);
         return messageRepository.save(chatMessage);
     }
+
+    public List<ChatMessage> findAllMsgs() {
+        List<ChatMessage> result = messageRepository.findAll();
+        return result;
+    }
 }
