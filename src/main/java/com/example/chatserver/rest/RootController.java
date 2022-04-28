@@ -14,16 +14,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class RootController implements ErrorController {
 
-    // @GetMapping({ "/", "/error", "/cha" })
-    // public String getUsers() {
-    // // return "/vue/index.html";
-    // return "/room.html";
-    // }
+    @GetMapping({ "/", "/error" })
+    public String webController() {
+        return "/vue/index.html";
+    }
 
     // @Override
-    // public String getErrorPath() {
-    // return "/error";
-    // }
+    public String getErrorPath() {
+        return "/error";
+    }
     // @GetMapping("")
     // public String main(Model model) {
     // log.info("INFO");

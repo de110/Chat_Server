@@ -27,7 +27,6 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-// @RestController
 @RequestMapping("/chat")
 public class ChatRoomController {
     private final ChatService chatService;
@@ -42,8 +41,9 @@ public class ChatRoomController {
     // 채팅 리스트 화면
     @GetMapping("/room")
     public String rooms(Model model) {
-        // return "/chat/room";
-        return "room";
+        // return "/";
+        // return "/room";
+        return "/vue/index";
     }
 
     // 모든 채팅방 목록 반환
@@ -72,7 +72,8 @@ public class ChatRoomController {
     public String roomDetail(Model model, @PathVariable String roomId) {
         model.addAttribute("roomId", roomId);
 
-        return "roomdetail";
+        // return "roomdetail";
+        return "/vue/index";
     }
 
     // 특정 채팅방 조회

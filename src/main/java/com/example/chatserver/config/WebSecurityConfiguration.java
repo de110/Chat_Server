@@ -17,7 +17,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/**").permitAll()
+                .antMatchers("/**", "/static/css/**", "/static/img/**",
+                        "/static/js/**", "/static/**", "**/*", "/room")
+                .permitAll()
                 // .antMatchers("/api/login").authenticated()
                 .anyRequest().authenticated()
                 .and()
