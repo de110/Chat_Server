@@ -1,6 +1,6 @@
 <template>
-  <!DOCTYPE html>
-  <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+  <!-- <!DOCTYPE html> -->
+  <!-- <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <head>
       <title>Websocket ChatRoom</title>
       <meta charset="utf-8" />
@@ -9,45 +9,45 @@
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
       />
     </head>
-    <body>
-      <h2>dasa</h2>
-      <div class="container" id="app" v-cloak>
-        <div>
-          <h2>{{ room.name }}</h2>
-        </div>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <label class="input-group-text">내용</label>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            v-model="message"
-            v-on:keypress.enter="sendMessage"
-          />
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" @click="sendMessage">
-              보내기
-            </button>
-          </div>
-        </div>
-        <ul class="list-group">
-          <li
-            class="list-group-item"
-            v-for="message in messages"
-            v-bind:key="message"
-          >
-            {{ message.sender }} - {{ message.message }}
-          </li>
-        </ul>
-        <div></div>
+    <body> -->
+  <!-- <h2>dasa</h2> -->
+  <div class="container" id="app" v-cloak>
+    <div>
+      <h2>{{ room.name }}</h2>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text">내용</label>
       </div>
-      <script src="/webjars/vue/2.5.16/vue.min.js"></script>
+      <input
+        type="text"
+        class="form-control"
+        v-model="message"
+        v-on:keypress.enter="sendMessage"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" @click="sendMessage">
+          보내기
+        </button>
+      </div>
+    </div>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        v-for="message in messages"
+        v-bind:key="message"
+      >
+        {{ message.sender }} - {{ message.message }}
+      </li>
+    </ul>
+    <div></div>
+  </div>
+  <!-- <script src="/webjars/vue/2.5.16/vue.min.js"></script>
       <script src="/webjars/axios/0.17.1/dist/axios.min.js"></script>
       <script src="/webjars/sockjs-client/1.1.2/dist/sockjs.min.js"></script>
-      <script src="/webjars/stomp-websocket/2.3.4/stomp.min.js"></script>
-    </body>
-  </html>
+      <script src="/webjars/stomp-websocket/2.3.4/stomp.min.js"></script> -->
+  <!-- </body> -->
+  <!-- </html> -->
 </template>
 
 <script>
