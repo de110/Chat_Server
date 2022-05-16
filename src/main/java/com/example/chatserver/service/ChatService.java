@@ -110,9 +110,9 @@ public class ChatService {
     }
 
     @Transactional
-    public ChatRoom createRoom(String name) {
-        ChatRoom chatRoom = ChatRoom.create(name);
-        chatRooms.put(chatRoom.getRoomId(), chatRoom);
+    public ChatRoom createRoom(String name, ChatRoom chatRoom) {
+        chatRoom = ChatRoom.create(name, chatRoom);
+        // chatRooms.put(chatRoom.getRoomId(), chatRoom);
 
         return chatRepository.save(chatRoom);
 
@@ -134,4 +134,15 @@ public class ChatService {
         List<ChatMessage> result = messageRepository.findAll();
         return result;
     }
+
+    @Transactional
+    public void deleteChatRoom(String roomId) {
+        // ChatRoom chatRoom = chatRepository.deleteByRoomId(roomId);
+        // if (chatRoom.isPresent()) {
+        chatRepository.deleteByRoomId(roomId);
+        // return true;
+        // }
+        // return false;
+    }
+
 }

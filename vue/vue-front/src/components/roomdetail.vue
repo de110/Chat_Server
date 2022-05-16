@@ -3,7 +3,7 @@
     <!-- <h2>dasa</h2> -->
     <div class="container" id="app" v-cloak>
       <div>
-        <h2>{{ room.name }}</h2>
+        <h2>{{ room.roomName }}</h2>
       </div>
       <div class="input-group">
         <div class="input-group-prepend">
@@ -57,6 +57,7 @@ export default {
       .get("/chat/room?roomId=" + this.roomId)
       .then(res => {
         this.room = res.data;
+        console.log(this.room);
       })
       .catch(err => {
         console.log(err);

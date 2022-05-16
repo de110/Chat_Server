@@ -67,10 +67,11 @@ public class ChatRoom {
     @Column(name = "guest")
     private String guest;
 
-    public static ChatRoom create(String name) {
-        ChatRoom room = new ChatRoom();
+    public static ChatRoom create(String name, ChatRoom room) {
+        // ChatRoom room = new ChatRoom();
         room.roomId = UUID.randomUUID().toString();
         room.roomName = name;
+        // room.host = room.host;
         return room;
     }
 

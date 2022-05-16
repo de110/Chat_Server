@@ -14,6 +14,7 @@ import com.example.chatserver.service.ChatService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,15 +57,15 @@ public class ChatRoomController {
     // 채팅방 생성
     @PostMapping("/room")
     @ResponseBody
-    public ChatRoom createRoom(@RequestParam String name) {
-        return chatService.createRoom(name);
+    public ChatRoom createRoom(@RequestParam String name, @RequestBody ChatRoom chatRoom) {
+        return chatService.createRoom(name, chatRoom);
     }
 
-    // @PostMapping("/create")
-    // @ResponseBody
-    // public ChatRoom create(@RequestBody ChatRoom chatRoom) {
-    // return chatService.create(chatRoom);
-    // }
+    @PostMapping("/create")
+    @ResponseBody
+    public ChatRoom create(@RequestBody ChatRoom chatRoom) {
+        return chatService.create(chatRoom);
+    }
 
     // 채팅방 입장 화면
     @GetMapping("/room/enter/{roomId}")
@@ -86,5 +87,10 @@ public class ChatRoomController {
     @ResponseBody
     public List<ChatRoom> getRoomParam(@RequestParam String roomId) {
         return chatService.findByRoomId(roomId);
+    }
+
+    @DeleteMapping("/room/delete")
+    public void deleteChatRoom(@RequestParam String roomId) {
+        chatService.deleteChatRoom(roomId);
     }
 }

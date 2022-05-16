@@ -10,7 +10,7 @@ import com.example.chatserver.model.ChatRoom;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-// @Repository
+@Repository
 public interface ChatRepository extends JpaRepository<ChatRoom, Long> {
     // private Map<String, ChatRoom> chatRoomMap;
     // List<ChatMessage> findBySendIdAndReceivedId(int s, int r);
@@ -20,6 +20,10 @@ public interface ChatRepository extends JpaRepository<ChatRoom, Long> {
     @Override
     List<ChatRoom> findAll();
 
+    // List<ChatRoom> findByRoomId(String roomId);
+
     List<ChatRoom> findByRoomId(String roomId);
+
+    long deleteByRoomId(String roomId);
 
 }
