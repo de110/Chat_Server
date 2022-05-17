@@ -1,56 +1,3 @@
-// package com.example.chatserver.controller;
-
-// import java.util.ArrayList;
-// import java.util.Collections;
-// import java.util.LinkedHashMap;
-// import java.util.List;
-// import java.util.Map;
-
-// import javax.annotation.PostConstruct;
-
-// // import com.example.chatserver.repository.ChatRepository;
-
-// import org.springframework.stereotype.Service;
-
-// import lombok.RequiredArgsConstructor;
-// import lombok.extern.slf4j.Slf4j;
-
-// @Service
-// @Slf4j
-// @RequiredArgsConstructor
-// public class ChatService {
-
-//     private Map<String, ChatRoom> chatRooms;
-//     // private final ChatRepository chatRepository;
-
-//     @PostConstruct
-//     // 의존관게 주입완료되면 실행되는 코드
-//     private void init() {
-//         chatRooms = new LinkedHashMap<>();
-//     }
-
-//     // 채팅방 불러오기
-//     public List<ChatRoom> findAllRoom() {
-//         // 채팅방 최근 생성 순으로 반환
-//         List<ChatRoom> result = new ArrayList<>(chatRooms.values());
-//         Collections.reverse(result);
-
-//         return result;
-//     }
-
-//     // 채팅방 하나 불러오기
-//     public ChatRoom findById(String roomId) {
-//         return chatRooms.get(roomId);
-//     }
-
-//     // 채팅방 생성
-//     public ChatRoom createRoom(String name) {
-//         ChatRoom chatRoom = ChatRoom.create(name);
-//         chatRooms.put(chatRoom.getRoomId(), chatRoom);
-//         return chatRoom;
-//     }
-
-// }
 package com.example.chatserver.service;
 
 import java.util.ArrayList;
@@ -110,8 +57,9 @@ public class ChatService {
     }
 
     @Transactional
-    public ChatRoom createRoom(String name, ChatRoom chatRoom) {
-        chatRoom = ChatRoom.create(name, chatRoom);
+    public ChatRoom createRoom(String name, String host, String guest) {
+        ChatRoom chatRoom = ChatRoom.create(name, host, guest);
+        // return chatRoom;
         // chatRooms.put(chatRoom.getRoomId(), chatRoom);
 
         return chatRepository.save(chatRoom);
@@ -137,12 +85,7 @@ public class ChatService {
 
     @Transactional
     public void deleteChatRoom(String roomId) {
-        // ChatRoom chatRoom = chatRepository.deleteByRoomId(roomId);
-        // if (chatRoom.isPresent()) {
         chatRepository.deleteByRoomId(roomId);
-        // return true;
-        // }
-        // return false;
     }
 
 }

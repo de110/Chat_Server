@@ -57,8 +57,8 @@ public class ChatRoomController {
     // 채팅방 생성
     @PostMapping("/room")
     @ResponseBody
-    public ChatRoom createRoom(@RequestParam String name, @RequestBody ChatRoom chatRoom) {
-        return chatService.createRoom(name, chatRoom);
+    public ChatRoom createRoom(@RequestParam String name, @RequestParam String host, String guest) {
+        return chatService.createRoom(name, host, guest);
     }
 
     @PostMapping("/create")
@@ -74,13 +74,6 @@ public class ChatRoomController {
 
         return "/vue/index";
     }
-
-    // 특정 채팅방 조회
-    // @GetMapping("/room/{roomId}")
-    // @ResponseBody
-    // public ChatRoom roomInfo(@PathVariable String roomId) {
-    // return chatService.findById(roomId);
-    // }
 
     // RoomId 로 특정 채팅방 조회
     @GetMapping("/roominfo")

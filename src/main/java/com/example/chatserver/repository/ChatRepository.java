@@ -12,15 +12,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface ChatRepository extends JpaRepository<ChatRoom, Long> {
-    // private Map<String, ChatRoom> chatRoomMap;
-    // List<ChatMessage> findBySendIdAndReceivedId(int s, int r);
-    // List<ChatRoom> findById(String id);
-    // Optional<ChatRoom> findByid(String id);
 
     @Override
     List<ChatRoom> findAll();
-
-    // List<ChatRoom> findByRoomId(String roomId);
 
     List<ChatRoom> findByRoomId(String roomId);
 
